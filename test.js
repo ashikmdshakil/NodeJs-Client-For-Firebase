@@ -19,12 +19,13 @@ const firebaseConfig = {
   };
   firebase.initializeApp(firebaseConfig);
   
-  var ref = firebase.database().ref("Players/");
+  var ref = firebase.database().ref("Players");
 
-  ref.on("child_added", (snapshot, prevChildKey)=>{
-    let player = snapshot.val();
-    console.log("The new players name is "+player.name);
-  })
+  var playerRef = ref.child("Players/")
+  ref.push({
+    id: 12,
+    name: "Nusrat"
+  });
   
 
 
